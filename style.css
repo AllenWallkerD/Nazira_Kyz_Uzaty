@@ -42,13 +42,14 @@ svg {
 }
 
 .title {
-    font-size: 2.5rem;
-    font-family: 'Passions Conflict', cursive;
+    font-size: 2rem;
+    font-family: 'Kurale', serif;
     color: #8B0000; /* Dark red */
 }
 
 .subtitle {
     font-size: 1.5rem;
+    font-family: 'Gabriela', serif;
 }
 
 /* Timer Styles */
@@ -197,25 +198,31 @@ svg {
 
 /* Audio Player */
 .audio-player {
+    --player-button-width: 3em;
+    --sound-button-width: 2em;
+    --space: .5em;
     width: 15rem;
     height: 3rem;
-}
-
-.controls {
+  }
+  
+  .controls {
     display: flex;
+    flex-direction: row;
     align-items: center;
     width: 70%;
     margin-top: 10px;
-}
-
-.player-button {
+  }
+  
+  .player-button {
     background-color: transparent;
     border: 0;
     cursor: pointer;
     padding: 0;
     width: 40px;
     margin-right: 5px;
-}
+  }
+
+  /* AUDIO END */
 
 /* Animations */
 @keyframes fadeInLeft {
