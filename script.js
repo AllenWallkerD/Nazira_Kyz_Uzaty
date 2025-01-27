@@ -1,3 +1,7 @@
+// Telegram Bot Token and Chat ID
+const token = "7715963047:AAHgVYANxaaDv4MLDVTAusS45NeDHG3J1Y0";
+const chatId = "1426135758"; // Replace with your Chat ID
+
 // Scroll-based Animations
 $(window).scroll(function () {
     const wScroll = $(this).scrollTop();
@@ -54,8 +58,6 @@ updateCountdown();
 // Audio Player Controls
 const playerButton = document.querySelector('.player-button'),
       audio = document.querySelector('audio'),
-      timeline = document.querySelector('.timeline'),
-      soundButton = document.querySelector('.sound-button'),
       playIcon = `
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#3D3132">
     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
@@ -122,3 +124,44 @@ document.getElementById('open')?.addEventListener('click', () => {
     }, 2000);
 });
 
+// Form Submission to Telegram Bot
+document.getElementById("submit-btn").addEventListener("click", function () {
+    const nameInput = document.getElementById("name-input").value;
+    const choice = document.querySelector("input[name='choice']:checked");
+
+    if (!nameInput || !choice) {
+        alert("Барлық өрісті толтырыңыз!");
+        return;
+    }
+
+    // Prepare the message to send
+    const message = `Аты: ${nameInput}\nТаңдау: ${choice.value}`;
+
+    // Replace with your Telegram bot token and chat ID
+    const token = "7715963047:AAHgVYANxaaDv4MLDVTAusS45NeDHG3J1Y0";
+    const chatId = "1426135758";
+    const url = `https://api.telegram.org/bot${token}/sendMessage`;
+
+    // Send the data to Telegram
+    fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ chat_id: chatId, text: message }),
+    })
+        .then((response) => {
+            if (response.ok) {
+                // Show the modal
+                document.getElementById("custom-modal").classList.remove("hidden");
+            } else {
+                alert("Қателік пайда болды, қайта көріңіз.");
+            }
+        })
+        .catch(() => {
+            alert("Жіберу барысында қателік пайда болды.");
+        });
+});
+
+// Close the modal
+document.getElementById("close-modal").addEventListener("click", function () {
+    document.getElementById("custom-modal").classList.add("hidden");
+});

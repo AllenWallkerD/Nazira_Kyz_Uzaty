@@ -272,3 +272,11 @@ svg {
         margin-bottom: 20px;
     }
 }
+
+.hidden {
+    display: none;
+}
+
+#custom-modal {
+    backdrop-filter: blur(10px);
+}
